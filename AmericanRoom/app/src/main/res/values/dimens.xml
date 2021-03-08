@@ -3,8 +3,10 @@
     <!-- dp -->
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
     <dimen name="dp_24">24dp</dimen>
     <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_38">38dp</dimen>
     <!-- sp -->
     <dimen name="sp_10">10sp</dimen>
     <dimen name="sp_12">12sp</dimen>

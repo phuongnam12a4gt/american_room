@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">American Room</string>
+    <string name="top">Top</string>
+    <string name="explore">Explore</string>
+    <string name="favorite">Favorite</string>
+    <string name="news">New</string>
 </resources>
