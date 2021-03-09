@@ -10,6 +10,7 @@ object Constant {
     const val TREND_CITY = "trends/cities"
     const val STATE = "?state="
     const val PAGE_DEFAULT = "&page=1"
+    const val DEFAULT_STATE = "CA"
     const val NUMBER_ITEM = "&items=5"
 }
 

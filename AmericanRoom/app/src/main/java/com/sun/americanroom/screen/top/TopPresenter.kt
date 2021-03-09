@@ -8,7 +8,7 @@ import com.sun.americanroom.utils.StateCode
 import com.sun.americanroom.utils.StateName
 import java.lang.Exception
 
-class TopPresenter private constructor (
+class TopPresenter (
     private val repository: RoomRepository
 ) : TopContract.Presenter {
 
