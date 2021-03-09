@@ -1,4 +1,9 @@
 package com.sun.americanroom.data.source.remote
 
-interface OnFetchDataJsonListener {
+import java.lang.Exception
+
+interface OnFetchDataJsonListener<T> {
+
+    fun onSuccess(data: T)
+    fun onError(exception: Exception?)
 }
