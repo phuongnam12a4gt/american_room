@@ -18,4 +18,9 @@
         <item name="colorPrimary">@color/color_blue_107</item>
         <item name="colorOnSurface">@color/color_black</item>
     </style>
+
+    <style name="RatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="colorAccent">#6200ea</item>
+        <item name="android:colorControlNormal">#f9a825</item>
+    </style>
 </resources>

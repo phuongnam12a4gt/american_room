@@ -1,6 +1,8 @@
 package com.sun.americanroom.data.source.remote.fetchjson
 
 import com.sun.americanroom.data.model.CityEntry
+import com.sun.americanroom.data.model.RoomExploreEntry
+import com.sun.americanroom.data.model.RoomSearchEntry
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.KeyEntity
 import org.json.JSONArray
@@ -42,6 +44,17 @@ class ParseDataWithJson {
                         keyEntity
                     )
                 }
+                KeyEntity.ROOM -> {
+                    parseJsonToList(
+                        jsonObjectContent?.getJSONArray(RoomExploreEntry.LIST),
+                        keyEntity
+                    )
+                }
+                KeyEntity.ROOMSEARCH -> {
+                    parseJsonToList(
+                        jsonObjectContent?.getJSONArray(RoomSearchEntry.LIST), keyEntity
+                    )
+                }
                 else -> null
             }
         } catch (e: Exception) {
@@ -54,6 +67,12 @@ class ParseDataWithJson {
         return when (keyEntity) {
             KeyEntity.CITY -> {
                 parseJsonToModel.parseJsonToCityFromTop(jsonObject)
+            }
+            KeyEntity.ROOM -> {
+                parseJsonToModel.parseJsonToRoomFromTop(jsonObject)
+            }
+            KeyEntity.ROOMSEARCH -> {
+                parseJsonToModel.parseJsonToRoomSearchFromTop(jsonObject)
             }
             else -> null
         }

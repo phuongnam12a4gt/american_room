@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_3"
+    app:cardBackgroundColor="?android:attr/windowBackground"
+    app:cardCornerRadius="@dimen/dp_10">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!---->
+
+        <ImageView
+            android:id="@+id/image_room_search"
+            android:layout_width="@dimen/dp_130"
+            android:layout_height="@dimen/dp_130"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.37" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameRoomSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dp_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/yellow"
+            app:layout_constraintBottom_toBottomOf="@id/textReview"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/nameRoomSearch"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@id/rating_bar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/price_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:textSize="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/textReview"
+            app:layout_goneMarginRight="@dimen/dp_16" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

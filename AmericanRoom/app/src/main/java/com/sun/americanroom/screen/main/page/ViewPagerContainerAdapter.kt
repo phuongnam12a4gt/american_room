@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
 class ViewPagerContainerAdapter(
-    fragmentManager: FragmentManager,
+    private var fragmentManager: FragmentManager,
     private var fragments: MutableList<Fragment> = mutableListOf()
 ) : FragmentPagerAdapter(
     fragmentManager,
@@ -15,4 +15,5 @@ class ViewPagerContainerAdapter(
     override fun getCount() = fragments.size
 
     override fun getItem(position: Int) = fragments[position]
+
 }
