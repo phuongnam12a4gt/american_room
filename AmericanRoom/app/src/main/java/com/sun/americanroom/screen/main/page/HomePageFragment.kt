@@ -9,9 +9,11 @@ import androidx.viewpager.widget.ViewPager
 import com.example.american_room.screen.utils.MenuItem
 import com.sun.americanroom.R
 import com.sun.americanroom.screen.explore.ExploreRoomFragment
+import com.sun.americanroom.screen.explore.searchhome.SearchRoomFragment
 import com.sun.americanroom.screen.favorite.FavoriteRoomFragment
 import com.sun.americanroom.screen.new.NewsRoomFragment
 import com.sun.americanroom.screen.top.TopRoomFragment
+import com.sun.americanroom.utils.addFragment
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 class HomePageFragment : Fragment() {
@@ -33,6 +35,13 @@ class HomePageFragment : Fragment() {
             viewPagerContainer.adapter = ViewPagerContainerAdapter(it, fragments)
             initItemBottomBar()
         }
+    }
+
+    override fun onResume() {
+        imageButtonSearch.setOnClickListener {
+            addFragment(SearchRoomFragment.newInstance(), R.id.containerLayout)
+        }
+        super.onResume()
     }
 
     private fun initListFragment() {
@@ -80,6 +89,12 @@ class HomePageFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 bottomNav.menu.getItem(position).isChecked = true
+                when (position) {
+                    MenuItem.EXPLORE.ordinal -> textViewTitle.text = getText(R.string.explore)
+                    MenuItem.NEW.ordinal -> textViewTitle.text = getText(R.string.news)
+                    MenuItem.TOP.ordinal -> textViewTitle.text = getText(R.string.top)
+                    else -> textViewTitle.text = getText(R.string.favorite)
+                }
             }
 
             override fun onPageScrollStateChanged(state: Int) = Unit
@@ -89,4 +104,5 @@ class HomePageFragment : Fragment() {
     companion object {
         fun newInstance() = HomePageFragment()
     }
+
 }

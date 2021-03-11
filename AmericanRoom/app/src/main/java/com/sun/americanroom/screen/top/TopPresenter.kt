@@ -1,14 +1,12 @@
 package com.sun.americanroom.screen.top
 
 import com.sun.americanroom.data.model.City
-import com.sun.americanroom.data.source.RoomDataSource
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
 import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.utils.StateCode
 import com.sun.americanroom.utils.StateName
-import java.lang.Exception
 
-class TopPresenter (
+class TopPresenter(
     private val repository: RoomRepository
 ) : TopContract.Presenter {
 

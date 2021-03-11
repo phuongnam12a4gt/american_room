@@ -23,7 +23,9 @@ fun Fragment.addFragment(fragment: Fragment, id: Int) {
 }
 
 fun Fragment.replaceFragment(fragment: Fragment, id: Int) {
-    fragmentManager?.inTransaction { replace(id, fragment).addToBackStack(null) }
+    fragmentManager?.inTransaction {
+        replace(id, fragment).addToBackStack(null)
+    }
 }
 
 fun Fragment.removeFragment(fragment: Fragment) {

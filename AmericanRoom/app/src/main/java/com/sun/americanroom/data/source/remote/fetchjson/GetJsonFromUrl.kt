@@ -1,9 +1,9 @@
 package com.sun.americanroom.data.source.remote.fetchjson
 
 import android.os.AsyncTask
+import android.util.Log
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
 import org.json.JSONObject
-import java.lang.Exception
 
 class GetJsonFromUrl<T> constructor(
     private val listener: OnFetchDataJsonListener<T>,

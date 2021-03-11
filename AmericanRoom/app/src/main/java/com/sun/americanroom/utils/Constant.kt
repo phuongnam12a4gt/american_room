@@ -12,6 +12,13 @@ object Constant {
     const val PAGE_DEFAULT = "&page=1"
     const val DEFAULT_STATE = "CA"
     const val NUMBER_ITEM = "&items=5"
+    const val NUMBER_ITEM_CITY_EXPLORE = "&items=8"
+    const val NUMBER_PAGE_ROOM_EXPLORE = "&page=1"
+    const val AIR_PROPERTY = "airbnb-property/"
+    const val TOP_REVIEWS = "top-reviewed"
+    const val CITY_ROOM_EXPLORE_SLIDE = "&city=Los%20Angeles"
+    const val REVIEW_COUNT = "&reviews_count=30"
+    const val ZIP_CODE="&zip_code=91342"
 }
 
 object StateCode {
@@ -32,4 +39,5 @@ object StateName {
 
 object KeyEntity {
     const val CITY = "city"
+    const val ROOM = "room"
 }
