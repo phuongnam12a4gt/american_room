@@ -15,6 +15,7 @@ object Constant {
     const val ITEM = "&items="
     const val NULL = "null"
     const val CITY = "&city="
+    const val NEW_HOME = "airbnb-property/newly-listed"
 }
 
 object StateCode {
@@ -36,6 +37,7 @@ object StateName {
 object KeyEntity {
     const val CITY = "city"
     const val TOP_ROOM = "top_room"
+    const val NEW_ROOM = "new_room"
 }
 
 object TopRoomEntry {
@@ -44,4 +46,14 @@ object TopRoomEntry {
     const val THUMBNAIL_URL = "thumbnail_url"
     const val STAR_RATING = "star_rating"
     const val NAME = "name"
+    const val STATE = "state"
+}
+
+object NewRoomEntry {
+    const val LIST = "list"
+    const val ID = "id"
+    const val THUMBNAIL_URL = "thumbnail_url"
+    const val STAR_RATING = "star_rating"
+    const val NAME = "name"
+    const val STATE = "state"
 }

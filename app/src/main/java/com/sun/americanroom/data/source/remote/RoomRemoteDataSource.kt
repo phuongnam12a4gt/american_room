@@ -1,6 +1,7 @@
 package com.sun.americanroom.data.source.remote
 
 import com.sun.americanroom.data.model.City
+import com.sun.americanroom.data.model.NewRoom
 import com.sun.americanroom.data.model.TopRoom
 import com.sun.americanroom.data.source.RoomDataSource
 import com.sun.americanroom.data.source.remote.fetchjson.GetJsonFromUrl
@@ -40,6 +41,21 @@ class RoomRemoteDataSource private constructor() : RoomDataSource.Remote {
             city.replace(" ", Constant.CONSTRAINT_TEXT) +
             Constant.API_KEY +
             Constant.API_VALUE
+        GetJsonFromUrl(listener, KeyEntity.TOP_ROOM).execute(baseUrl)
+    }
+
+    override fun getNewRoom(
+        listener: OnFetchDataJsonListener<MutableList<NewRoom>>,
+        state: String,
+        city: String
+    ) {
+        val baseUrl = Constant.BASE_URL +
+            Constant.NEW_HOME +
+            Constant.STATE +
+            state +
+            Constant.CITY +
+            city.replace(" ", Constant.CONSTRAINT_TEXT)+
+            Constant.PAGE_DEFAULT
         GetJsonFromUrl(listener, KeyEntity.TOP_ROOM).execute(baseUrl)
     }
 

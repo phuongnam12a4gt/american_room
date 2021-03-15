@@ -1,6 +1,6 @@
 package com.sun.americanroom.data.model
 
-data class TopRoom (
+data class NewRoom(
     val id: Int?,
     val image: String?,
     val rating: Float?,
