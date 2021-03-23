@@ -45,6 +45,7 @@ class HomePageFragment : Fragment() {
     }
 
     private fun initItemBottomBar() {
+        viewPagerContainer.offscreenPageLimit = OFF_SCREEN_PAGE_LIMIT
         textViewTitle.text = getText(R.string.explore)
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -80,6 +81,12 @@ class HomePageFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 bottomNav.menu.getItem(position).isChecked = true
+                when (position) {
+                    MenuItem.EXPLORE.ordinal -> textViewTitle.text = getText(R.string.explore)
+                    MenuItem.NEW.ordinal -> textViewTitle.text = getText(R.string.news)
+                    MenuItem.TOP.ordinal -> textViewTitle.text = getText(R.string.top)
+                    else -> textViewTitle.text = getText(R.string.favorite)
+                }
             }
 
             override fun onPageScrollStateChanged(state: Int) = Unit
@@ -87,6 +94,8 @@ class HomePageFragment : Fragment() {
     }
 
     companion object {
+        private const val OFF_SCREEN_PAGE_LIMIT = 2
+
         fun newInstance() = HomePageFragment()
     }
 }
