@@ -16,6 +16,7 @@ object Constant {
     const val NULL = "null"
     const val CITY = "&city="
     const val NEW_HOME = "airbnb-property/newly-listed"
+    const val NUMBER_CITY_DEFAULT=8
 }
 
 object StateCode {
