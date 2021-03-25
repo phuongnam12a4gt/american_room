@@ -7,14 +7,28 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sun.americanroom.R
 import com.sun.americanroom.data.model.City
+import com.sun.americanroom.data.source.local.RoomLocalDataSource
+import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
+import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.explore.adapter.CityExploreAdapter
+import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.OnItemRecyclerViewClickListener
+import com.sun.americanroom.utils.StateCode
 import kotlinx.android.synthetic.main.fragment_explore_room.*
 
 class ExploreRoomFragment : Fragment(),
-    OnItemRecyclerViewClickListener<City> {
+    OnItemRecyclerViewClickListener<City>,
+    ExploreContract.View {
 
     private val adapterCityExplore: CityExploreAdapter by lazy { CityExploreAdapter() }
+    private val explorePresenter: ExploreContract.Presenter by lazy {
+        ExplorePresenter(
+            RoomRepository.getRepository(
+                RoomLocalDataSource.instance,
+                RoomRemoteDataSource.instance
+            )
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +41,7 @@ class ExploreRoomFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initData()
     }
 
     private fun initView() {
@@ -37,8 +52,20 @@ class ExploreRoomFragment : Fragment(),
         adapterCityExplore.registerItemRecyclerViewClickListener(this)
     }
 
-    override fun onItemClickListener(item: City?) {
+    private fun initData() {
+        explorePresenter.run {
+            setView(this@ExploreRoomFragment)
+            getCityExplore(StateCode.CALIFORNIA)
+        }
     }
+
+    override fun onItemClickListener(item: City?) {}
+
+    override fun getCityOnSuccess(exploreCity: MutableList<City>) {
+        adapterCityExplore.updateData(exploreCity)
+    }
+
+    override fun onError(exception: Exception?) {}
 
     companion object {
         fun newInstance() = ExploreRoomFragment()
