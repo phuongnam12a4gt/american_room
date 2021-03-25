@@ -1,5 +1,6 @@
 package com.sun.americanroom.utils
 
-interface OnItemRecyclerViewClickListener {
+interface OnItemRecyclerViewClickListener<T> {
 
+    fun onItemClickListener(item: T?)
 }
