@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.sun.americanroom.R
 import com.sun.americanroom.data.model.City
+import com.sun.americanroom.data.model.RoomExplore
 import com.sun.americanroom.data.source.local.RoomLocalDataSource
 import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
 import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.explore.adapter.CityExploreAdapter
+import com.sun.americanroom.screen.explore.adapter.RoomExploreAdapter
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.OnItemRecyclerViewClickListener
 import com.sun.americanroom.utils.StateCode
@@ -21,6 +24,7 @@ class ExploreRoomFragment : Fragment(),
     ExploreContract.View {
 
     private val adapterCityExplore: CityExploreAdapter by lazy { CityExploreAdapter() }
+    private val adapterRoomExplore: RoomExploreAdapter by lazy { RoomExploreAdapter() }
     private val explorePresenter: ExploreContract.Presenter by lazy {
         ExplorePresenter(
             RoomRepository.getRepository(
@@ -50,6 +54,7 @@ class ExploreRoomFragment : Fragment(),
             adapter = this@ExploreRoomFragment.adapterCityExplore
         }
         adapterCityExplore.registerItemRecyclerViewClickListener(this)
+        viewPagerSlider.adapter = adapterRoomExplore
     }
 
     private fun initData() {
