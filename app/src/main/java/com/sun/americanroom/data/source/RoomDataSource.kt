@@ -1,9 +1,6 @@
 package com.sun.americanroom.data.source
 
-import com.sun.americanroom.data.model.City
-import com.sun.americanroom.data.model.NewRoom
-import com.sun.americanroom.data.model.RoomExplore
-import com.sun.americanroom.data.model.TopRoom
+import com.sun.americanroom.data.model.*
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
 
 interface RoomDataSource {
@@ -30,5 +27,11 @@ interface RoomDataSource {
         )
 
         fun getRoomExplore(listener: OnFetchDataJsonListener<MutableList<RoomExplore>>)
+
+        fun getRoomDetail(
+            listener: OnFetchDataJsonListener<Room>,
+            state: String,
+            id: Int
+        )
     }
 }
