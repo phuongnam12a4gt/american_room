@@ -16,7 +16,9 @@ object Constant {
     const val NULL = "null"
     const val CITY = "&city="
     const val NEW_HOME = "airbnb-property/newly-listed"
-    const val NUMBER_CITY_DEFAULT=8
+    const val NUMBER_CITY_DEFAULT = 8
+    const val ZIP_CODE = "&zip_code=91342"
+    const val NUMBER_ROOM_SLIDER=3
 }
 
 object StateCode {
@@ -39,6 +41,7 @@ object KeyEntity {
     const val CITY = "city"
     const val TOP_ROOM = "top_room"
     const val NEW_ROOM = "new_room"
+    const val TOP_ROOM_SLIDER="top_room_slider"
 }
 
 object TopRoomEntry {

@@ -1,9 +1,6 @@
 package com.sun.americanroom.data.source.remote.fetchjson
 
-import com.sun.americanroom.data.model.City
-import com.sun.americanroom.data.model.CityEntry
-import com.sun.americanroom.data.model.NewRoom
-import com.sun.americanroom.data.model.TopRoom
+import com.sun.americanroom.data.model.*
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.NewRoomEntry
 import com.sun.americanroom.utils.TopRoomEntry
@@ -40,6 +37,20 @@ class ParseJson {
                 else getDouble(NewRoomEntry.STAR_RATING).toFloat(),
                 getString(NewRoomEntry.NAME),
                 getString(NewRoomEntry.STATE)
+            )
+        }
+
+    fun parseJsonToRoomFromTop(jsonObject: JSONObject?) =
+        jsonObject?.run {
+            RoomExplore(
+                getInt(RoomExploreEntry.ID),
+                getString(RoomExploreEntry.CITY),
+                getString(RoomExploreEntry.PICTURE_URL),
+                getInt(RoomExploreEntry.PRICE),
+                getString(RoomExploreEntry.NATIVE_CURRENCY),
+                getString(RoomExploreEntry.NAME),
+                getInt(RoomExploreEntry.REVIEWCOUNT),
+                getInt(RoomExploreEntry.STARRATING)
             )
         }
 }
