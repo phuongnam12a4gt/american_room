@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sun.americanroom.R
 import com.sun.americanroom.data.model.City
+import com.sun.americanroom.data.model.TopRoom
 
-class CityAdapter : RecyclerView.Adapter<ItemCityViewHolder>() {
+class CityAdapter(
+    private var onItemClick: (TopRoom) -> Unit
+) : RecyclerView.Adapter<ItemCityViewHolder>() {
 
     private val listCity = mutableListOf<City>()
 
@@ -15,7 +18,10 @@ class CityAdapter : RecyclerView.Adapter<ItemCityViewHolder>() {
         viewType: Int
     ): ItemCityViewHolder =
         ItemCityViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_top, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(
+                    R.layout.item_top, parent, false
+                ), onItemClick
         )
 
     override fun getItemCount() = listCity.size

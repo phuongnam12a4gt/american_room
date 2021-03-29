@@ -13,10 +13,11 @@ import com.sun.americanroom.screen.top.room.adapterroom.TopRoomAdapter
 import kotlinx.android.synthetic.main.item_top.view.*
 
 class ItemCityViewHolder(
-    itemView: View
+    itemView: View,
+    private val onItemClicked: (TopRoom) -> Unit
 ) : RecyclerView.ViewHolder(itemView), TopRoomContract.View {
 
-    private val adapterTopRoom by lazy { TopRoomAdapter() }
+    private val adapterTopRoom by lazy { TopRoomAdapter(onItemClicked) }
     private val presenterItemViewHolder: TopRoomContract.Presenter by lazy {
         TopRoomPresenter(
             RoomRepository.getRepository(

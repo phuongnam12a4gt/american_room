@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sun.americanroom.R
 import com.sun.americanroom.data.model.NewRoom
 
-class NewRoomAdapter : RecyclerView.Adapter<ItemNewRoomViewHolder>() {
+class NewRoomAdapter(
+    private var onItemClick: (NewRoom) -> Unit
+) : RecyclerView.Adapter<ItemNewRoomViewHolder>() {
 
     private val newRoomList = mutableListOf<NewRoom>()
 
@@ -16,7 +18,7 @@ class NewRoomAdapter : RecyclerView.Adapter<ItemNewRoomViewHolder>() {
         ItemNewRoomViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_new_room, parent, false
-            )
+            ), onItemClick
         )
 
     override fun getItemCount() = newRoomList.size

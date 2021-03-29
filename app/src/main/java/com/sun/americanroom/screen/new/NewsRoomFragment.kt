@@ -13,14 +13,23 @@ import com.sun.americanroom.data.source.local.RoomLocalDataSource
 import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
 import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.new.cityadapter.CityAdapter
+import com.sun.americanroom.screen.roomdetail.RoomDetailFragment
 import com.sun.americanroom.utils.StateName
+import com.sun.americanroom.utils.addFragment
 import kotlinx.android.synthetic.main.fragment_news_room.*
 
 class NewsRoomFragment : Fragment(),
     AdapterView.OnItemSelectedListener,
     NewContract.View {
 
-    private val cityAdapter by lazy { CityAdapter() }
+    private val cityAdapter by lazy {
+        CityAdapter {
+            addFragment(
+                RoomDetailFragment.getDetail(it.state, it.id),
+                R.id.containerLayout
+            )
+        }
+    }
     private val newPresenter: NewContract.Presenter by lazy {
         NewPresenter(
             RoomRepository.getRepository(

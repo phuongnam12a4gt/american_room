@@ -3,14 +3,14 @@ package com.sun.americanroom.screen.new.roomitem.adapterroom
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.sun.americanroom.data.model.NewRoom
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.loadImage
 import kotlinx.android.synthetic.main.item_new_room.view.*
 
 class ItemNewRoomViewHolder(
-    itemTopRoomView: View
+    itemTopRoomView: View,
+    private val onItemClicked: (NewRoom) -> Unit
 ) : RecyclerView.ViewHolder(itemTopRoomView) {
 
     fun bindViewData(newRoom: NewRoom) {
@@ -22,6 +22,9 @@ class ItemNewRoomViewHolder(
             }
             textViewRoomName.text = newRoom.name.toString()
             newRoom.image?.let { imageViewNewRoom.loadImage(it) }
+            setOnClickListener {
+                onItemClicked(newRoom)
+            }
         }
     }
 }
