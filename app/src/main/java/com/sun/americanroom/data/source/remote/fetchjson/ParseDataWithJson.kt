@@ -1,6 +1,7 @@
 package com.sun.americanroom.data.source.remote.fetchjson
 
 import com.sun.americanroom.data.model.CityEntry
+import com.sun.americanroom.data.model.RoomExploreEntry
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.KeyEntity
 import com.sun.americanroom.utils.NewRoomEntry
@@ -56,6 +57,12 @@ class ParseDataWithJson {
                         keyEntity
                     )
                 }
+                KeyEntity.TOP_ROOM_SLIDER -> {
+                    parseJsonToList(
+                        jsonObjectContent?.getJSONArray(RoomExploreEntry.LIST),
+                        keyEntity
+                    )
+                }
                 else -> null
             }
         } catch (e: Exception) {
@@ -74,6 +81,9 @@ class ParseDataWithJson {
             }
             KeyEntity.NEW_ROOM -> {
                 parseJsonToModel.parseJsonToNewRoom(jsonObject)
+            }
+            KeyEntity.TOP_ROOM_SLIDER -> {
+                parseJsonToModel.parseJsonToRoomFromTop(jsonObject)
             }
             else -> null
         }
@@ -99,6 +109,12 @@ class ParseDataWithJson {
                 for (i in 0 until (jsonArray?.length() ?: 0)) {
                     val jsonObject = jsonArray?.getJSONObject(i)
                     if (data.size.equals(NUMBER_OF_ROOM)) return data
+                    data.add(parseJsonToObject(jsonObject, keyEntity))
+                }
+            }
+            KeyEntity.TOP_ROOM_SLIDER -> {
+                for (i in 0 until Constant.NUMBER_ROOM_SLIDER) {
+                    val jsonObject = jsonArray?.getJSONObject(i)
                     data.add(parseJsonToObject(jsonObject, keyEntity))
                 }
             }

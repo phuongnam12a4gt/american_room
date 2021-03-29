@@ -61,6 +61,7 @@ class ExploreRoomFragment : Fragment(),
         explorePresenter.run {
             setView(this@ExploreRoomFragment)
             getCityExplore(StateCode.CALIFORNIA)
+            getRoomExplore()
         }
     }
 
@@ -71,6 +72,12 @@ class ExploreRoomFragment : Fragment(),
     }
 
     override fun onError(exception: Exception?) {}
+
+    override fun getRoomExploreSuccess(exploreRoom: MutableList<RoomExplore>) {
+        activity?.let {
+            adapterRoomExplore.updateDataRoomExplore(it, exploreRoom)
+        }
+    }
 
     companion object {
         fun newInstance() = ExploreRoomFragment()
