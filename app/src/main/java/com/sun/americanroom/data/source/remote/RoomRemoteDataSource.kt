@@ -57,8 +57,10 @@ class RoomRemoteDataSource private constructor() : RoomDataSource.Remote {
             state +
             Constant.CITY +
             city.replace(" ", Constant.CONSTRAINT_TEXT) +
-            Constant.PAGE_DEFAULT
-        GetJsonFromUrl(listener, KeyEntity.TOP_ROOM).execute(baseUrl)
+            Constant.PAGE_DEFAULT +
+            Constant.API_KEY +
+            Constant.API_VALUE
+        GetJsonFromUrl(listener, KeyEntity.NEW_ROOM).execute(baseUrl)
     }
 
     override fun getRoomExplore(listener: OnFetchDataJsonListener<MutableList<RoomExplore>>) {
