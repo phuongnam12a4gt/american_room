@@ -7,3 +7,9 @@ data class NewRoom(
     val name: String?,
     val state: String?
 )
+
+object NewRoomEntry {
+    const val ID = "id"
+    const val NAME = "name"
+    const val STATE = "state"
+}

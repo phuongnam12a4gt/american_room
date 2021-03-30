@@ -7,3 +7,9 @@ data class TopRoom (
     val name: String?,
     val state: String?
 )
+
+object TopRoomEntry {
+    const val ID = "id"
+    const val NAME = "name"
+    const val STATE = "state"
+}
