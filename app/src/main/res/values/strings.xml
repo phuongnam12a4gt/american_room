@@ -16,4 +16,6 @@
     <string name="bedrooms">Bedrooms</string>
     <string name="person">Person</string>
     <string name="description">Description</string>
+    <string name="reviews_count">(%d reviews)</string>
+    <string name="search">Search</string>
 </resources>

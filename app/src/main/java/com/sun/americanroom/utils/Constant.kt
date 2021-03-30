@@ -18,7 +18,13 @@ object Constant {
     const val NEW_HOME = "airbnb-property/newly-listed"
     const val NUMBER_CITY_DEFAULT = 8
     const val ZIP_CODE = "&zip_code=91342"
-    const val NUMBER_ROOM_SLIDER=3
+    const val NUMBER_ROOM_SLIDER = 3
+    const val PROPERTY = "airbnb-property/"
+    const val FORMAT_LOCATION = "geo:%f,%f"
+    const val LIST = "list"
+    const val THUMBNAIL_URL = "thumbnail_url"
+    const val MEDIUM_URL = "medium_url"
+    const val STAR_RATING = "star_rating"
 }
 
 object StateCode {
@@ -41,23 +47,17 @@ object KeyEntity {
     const val CITY = "city"
     const val TOP_ROOM = "top_room"
     const val NEW_ROOM = "new_room"
-    const val TOP_ROOM_SLIDER="top_room_slider"
+    const val TOP_ROOM_SLIDER = "top_room_slider"
+    const val ROOM_DETAIL = "room_detail"
 }
 
-object TopRoomEntry {
-    const val LIST = "list"
-    const val ID = "id"
-    const val THUMBNAIL_URL = "thumbnail_url"
-    const val STAR_RATING = "star_rating"
-    const val NAME = "name"
-    const val STATE = "state"
-}
-
-object NewRoomEntry {
-    const val LIST = "list"
-    const val ID = "id"
-    const val THUMBNAIL_URL = "thumbnail_url"
-    const val STAR_RATING = "star_rating"
-    const val NAME = "name"
-    const val STATE = "state"
+enum class CityName(val value: String) {
+    OAKLAND("Oakland"),
+    LOS_ANGELES("Los Angles"),
+    SAN_DIEGO("San Diego"),
+    SAN_FRANCISCO("San Francisco"),
+    LONG_BEACH("Long Beach"),
+    SANTA_BARBARA("Santa Barbara"),
+    SACRAMENTO("Sacramento"),
+    GLENDALE("Glendale")
 }

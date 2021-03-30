@@ -1,11 +1,8 @@
 package com.sun.americanroom.data.source.remote.fetchjson
 
 import com.sun.americanroom.data.model.CityEntry
-import com.sun.americanroom.data.model.RoomExploreEntry
 import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.KeyEntity
-import com.sun.americanroom.utils.NewRoomEntry
-import com.sun.americanroom.utils.TopRoomEntry
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
@@ -47,21 +44,24 @@ class ParseDataWithJson {
                 }
                 KeyEntity.TOP_ROOM -> {
                     parseJsonToList(
-                        jsonObjectContent?.getJSONArray(TopRoomEntry.LIST),
+                        jsonObjectContent?.getJSONArray(Constant.LIST),
                         keyEntity
                     )
                 }
                 KeyEntity.NEW_ROOM -> {
                     parseJsonToList(
-                        jsonObjectContent?.getJSONArray(NewRoomEntry.LIST),
+                        jsonObjectContent?.getJSONArray(Constant.LIST),
                         keyEntity
                     )
                 }
                 KeyEntity.TOP_ROOM_SLIDER -> {
                     parseJsonToList(
-                        jsonObjectContent?.getJSONArray(RoomExploreEntry.LIST),
+                        jsonObjectContent?.getJSONArray(Constant.LIST),
                         keyEntity
                     )
+                }
+                KeyEntity.ROOM_DETAIL -> {
+                    parseJsonToObject(jsonObjectContent, keyEntity)
                 }
                 else -> null
             }
@@ -84,6 +84,9 @@ class ParseDataWithJson {
             }
             KeyEntity.TOP_ROOM_SLIDER -> {
                 parseJsonToModel.parseJsonToRoomFromTop(jsonObject)
+            }
+            KeyEntity.ROOM_DETAIL -> {
+                parseJsonToModel.parseJsonToRoomDetail(jsonObject)
             }
             else -> null
         }
