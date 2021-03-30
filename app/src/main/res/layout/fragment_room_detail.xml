@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".screen.roomdetail.RoomDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewRoom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="360:193"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_18"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:src="@drawable/ic_favourite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewRoom"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRatingPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewRoom"
+            app:layout_constraintStart_toEndOf="@id/imageViewStar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewRoom"
+            app:layout_constraintStart_toEndOf="@id/textViewRatingPoint" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewLocationIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toTopOf="@id/imageViewStar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toTopOf="@id/textViewRatingPoint"
+            app:layout_constraintStart_toEndOf="@id/imageViewLocationIcon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRoomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintBottom_toTopOf="@id/textViewCity"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/description"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewRoom" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginEnd="@dimen/dp_22"
+            android:fontFamily="@font/roboto_italic"
+            android:textColor="@color/color_red"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewRoom" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewPerson"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_18"
+            android:background="@color/color_black"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/dp_18"
+            app:layout_constraintBottom_toTopOf="@id/textViewRelated"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/cardViewBedrooms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewContent"
+            app:layout_constraintWidth_percent="0.2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/person"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_10" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBedrooms"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_18"
+            app:cardCornerRadius="@dimen/dp_18"
+            app:layout_constraintBottom_toTopOf="@id/textViewRelated"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/cardViewBed"
+            app:layout_constraintStart_toEndOf="@id/cardViewPerson"
+            app:layout_constraintTop_toBottomOf="@id/textViewContent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewBedrooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/bedrooms"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_10" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_18"
+            app:cardCornerRadius="@dimen/dp_18"
+            app:layout_constraintBottom_toTopOf="@id/textViewRelated"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/cardViewBath"
+            app:layout_constraintStart_toEndOf="@id/cardViewBedrooms"
+            app:layout_constraintTop_toBottomOf="@id/textViewContent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewBed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/bed"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_10" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBath"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_18"
+            app:cardCornerRadius="@dimen/dp_18"
+            app:layout_constraintBottom_toTopOf="@id/textViewRelated"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardViewBed"
+            app:layout_constraintTop_toBottomOf="@id/textViewContent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewBath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/bath"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_10" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRelated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_14"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingTop="@dimen/dp_24"
+            android:text="@string/related"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewPerson" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewRelated"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_18"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintDimensionRatio="339:104"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewRelated" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_20"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/location"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewRelated" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewLocation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="311:168"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLocation" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonOpenMap"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_24"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_marginEnd="@dimen/dp_24"
+            android:layout_marginBottom="@dimen/dp_18"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/display_location"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="311:50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLocation" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

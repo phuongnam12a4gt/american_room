@@ -8,4 +8,12 @@
     <string name="text_title_suggesstion">May Be You Like This</string>
     <string name="cities">Cities</string>
     <string name="reviews">Reviews</string>
+    <string name="display_location">Display Location</string>
+    <string name="location">Location</string>
+    <string name="related">Related</string>
+    <string name="bath">Bath</string>
+    <string name="bed">Bed</string>
+    <string name="bedrooms">Bedrooms</string>
+    <string name="person">Person</string>
+    <string name="description">Description</string>
 </resources>
