@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white">
@@ -32,7 +31,7 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchViewRoom"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_56"
         android:layout_marginTop="@dimen/dp_12"
         android:background="@drawable/custom_search"
         app:iconifiedByDefault="false"
@@ -45,10 +44,22 @@
         android:id="@+id/recyclerViewCitySearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_search_list"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="@+id/searchViewRoom"
         app:layout_constraintStart_toStartOf="@+id/searchViewRoom"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewRoom" />
+        app:layout_constraintTop_toBottomOf="@id/searchViewRoom" />
+
+    <TextView
+        android:id="@+id/textViewTilteListRoom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/list_room_search"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageViewBack"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewCitySearch" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewListRoomSearch"
@@ -61,5 +72,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewCitySearch" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTilteListRoom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

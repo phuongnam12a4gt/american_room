@@ -5,8 +5,8 @@
     <solid android:color="@color/color_white" />
 
     <stroke
-        android:width="@dimen/dp_2"
-        android:color="@color/color_white_grey" />
+        android:width="@dimen/dp_6"
+        android:color="@color/color_white" />
 
     <padding
         android:bottom="@dimen/dp_10"
@@ -14,5 +14,5 @@
         android:right="@dimen/dp_10"
         android:top="@dimen/dp_10" />
 
-    <corners android:radius="@dimen/dp_10" />
+    <corners android:radius="@dimen/dp_3" />
 </shape>
