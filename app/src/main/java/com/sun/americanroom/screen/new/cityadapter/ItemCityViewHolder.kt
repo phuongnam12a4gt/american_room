@@ -1,5 +1,6 @@
 package com.sun.americanroom.screen.new.cityadapter
 
+import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.sun.americanroom.data.model.City
@@ -21,7 +22,7 @@ class ItemCityViewHolder(
     private val presenterItemViewHolder: NewRoomContract.Presenter by lazy {
         NewRoomPresenter(
             RoomRepository.getRepository(
-                RoomLocalDataSource.instance,
+                RoomLocalDataSource.getLocalData(itemView.context),
                 RoomRemoteDataSource.instance
             )
         )

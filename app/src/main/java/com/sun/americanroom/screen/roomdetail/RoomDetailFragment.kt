@@ -39,7 +39,7 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
     private val roomDetailPresenter: RoomDetailContract.Presenter by lazy {
         RoomDetailPresenter(
             RoomRepository.getRepository(
-                RoomLocalDataSource.instance,
+                RoomLocalDataSource.getLocalData(requireContext()),
                 RoomRemoteDataSource.instance
             )
         )
