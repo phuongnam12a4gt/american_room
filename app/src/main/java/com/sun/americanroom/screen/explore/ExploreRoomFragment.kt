@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.sun.americanroom.R
 import com.sun.americanroom.data.model.City
@@ -14,7 +13,6 @@ import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
 import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.explore.adapter.CityExploreAdapter
 import com.sun.americanroom.screen.explore.adapter.RoomExploreAdapter
-import com.sun.americanroom.utils.Constant
 import com.sun.americanroom.utils.OnItemRecyclerViewClickListener
 import com.sun.americanroom.utils.StateCode
 import kotlinx.android.synthetic.main.fragment_explore_room.*

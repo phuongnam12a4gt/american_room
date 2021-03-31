@@ -47,6 +47,17 @@ object KeyEntity {
     const val CITY = "city"
     const val TOP_ROOM = "top_room"
     const val NEW_ROOM = "new_room"
-    const val TOP_ROOM_SLIDER="top_room_slider"
+    const val TOP_ROOM_SLIDER = "top_room_slider"
     const val ROOM_DETAIL = "room_detail"
+}
+
+enum class CityName(val value: String) {
+    OAKLAND("Oakland"),
+    LOS_ANGELES("Los Angles"),
+    SAN_DIEGO("San Diego"),
+    SAN_FRANCISCO("San Francisco"),
+    LONG_BEACH("Long Beach"),
+    SANTA_BARBARA("Santa Barbara"),
+    SACRAMENTO("Sacramento"),
+    GLENDALE("Glendale")
 }
