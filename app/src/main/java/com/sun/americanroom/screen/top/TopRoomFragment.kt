@@ -31,10 +31,11 @@ class TopRoomFragment : Fragment(),
             )
         }
     }
+
     private val topPresenter: TopContract.Presenter by lazy {
         TopPresenter(
             RoomRepository.getRepository(
-                RoomLocalDataSource.instance,
+                RoomLocalDataSource.getLocalData(requireContext()),
                 RoomRemoteDataSource.instance
             )
         )

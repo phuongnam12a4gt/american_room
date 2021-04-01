@@ -33,7 +33,7 @@ class NewsRoomFragment : Fragment(),
     private val newPresenter: NewContract.Presenter by lazy {
         NewPresenter(
             RoomRepository.getRepository(
-                RoomLocalDataSource.instance,
+                RoomLocalDataSource.getLocalData(requireContext()),
                 RoomRemoteDataSource.instance
             )
         )

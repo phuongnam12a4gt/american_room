@@ -26,7 +26,7 @@ class ExploreRoomFragment : Fragment(),
     private val explorePresenter: ExploreContract.Presenter by lazy {
         ExplorePresenter(
             RoomRepository.getRepository(
-                RoomLocalDataSource.instance,
+                RoomLocalDataSource.getLocalData(requireContext()),
                 RoomRemoteDataSource.instance
             )
         )
