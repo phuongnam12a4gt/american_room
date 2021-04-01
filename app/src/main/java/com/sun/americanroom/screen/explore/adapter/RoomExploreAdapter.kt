@@ -49,3 +49,4 @@ class RoomExploreAdapter : PagerAdapter() {
         container.removeView(`object` as View)
     }
 }
+

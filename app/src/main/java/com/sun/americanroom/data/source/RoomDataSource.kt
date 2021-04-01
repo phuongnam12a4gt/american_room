@@ -1,13 +1,37 @@
 package com.sun.americanroom.data.source
 
 import com.sun.americanroom.data.model.*
+import com.sun.americanroom.data.source.local.OnFetchDataLocalListener
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
 
 interface RoomDataSource {
 
-    interface Local
+    interface Local {
+
+        fun saveRoom(
+            room: Room,
+            listener: OnFetchDataLocalListener<Room>
+        )
+
+        fun deleteRoom(
+            state: String,
+            idRoom: Int,
+            listener: OnFetchDataLocalListener<Room>
+        )
+
+        fun getRoom(
+            state: String,
+            idRoom: Int,
+            listener: OnFetchDataLocalListener<Room>
+        )
+
+        fun getAllRoom(
+            listener: OnFetchDataLocalListener<MutableList<Room>>
+        )
+    }
 
     interface Remote {
+
         fun getCity(
             listener: OnFetchDataJsonListener<MutableList<City>>,
             state: String,
@@ -26,7 +50,9 @@ interface RoomDataSource {
             city: String
         )
 
-        fun getRoomExplore(listener: OnFetchDataJsonListener<MutableList<RoomExplore>>)
+        fun getRoomExplore(
+            listener: OnFetchDataJsonListener<MutableList<RoomExplore>>
+        )
 
         fun getRoomDetail(
             listener: OnFetchDataJsonListener<Room>,

@@ -2,6 +2,7 @@ package com.sun.americanroom.data.source.repository
 
 import com.sun.americanroom.data.model.*
 import com.sun.americanroom.data.source.RoomDataSource
+import com.sun.americanroom.data.source.local.OnFetchDataLocalListener
 import com.sun.americanroom.data.source.local.RoomLocalDataSource
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
 import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
@@ -45,6 +46,35 @@ class RoomRepository private constructor(
         id: Int
     ) {
         remote.getRoomDetail(listener, state, id)
+    }
+
+    fun saveRoom(
+        room: Room,
+        listener: OnFetchDataLocalListener<Room>
+    ) {
+        local.saveRoom(room, listener)
+    }
+
+    fun deleteRoom(
+        state: String,
+        idRoom: Int,
+        listener: OnFetchDataLocalListener<Room>
+    ) {
+        local.deleteRoom(state, idRoom, listener)
+    }
+
+    fun getRoom(
+        state: String,
+        idRoom: Int,
+        listener: OnFetchDataLocalListener<Room>
+    ) {
+        local.getRoom(state, idRoom, listener)
+    }
+
+    fun getAllRoom(
+        listener: OnFetchDataLocalListener<MutableList<Room>>
+    ) {
+        local.getAllRoom(listener)
     }
 
     companion object {
