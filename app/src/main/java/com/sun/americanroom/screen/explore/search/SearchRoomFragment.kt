@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sun.americanroom.R
@@ -57,14 +58,19 @@ class SearchRoomFragment : Fragment() {
             fragmentManager?.popBackStack()
         }
         searchViewRoom.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 adapterCitySearch.filter.filter(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapterCitySearch.filter.filter(newText)
+                if (newText.toString().isEmpty()) {
+                    recyclerViewCitySearch.visibility = View.GONE
+                }
                 recyclerViewCitySearch.visibility = View.VISIBLE
+                searchViewRoom.setBackgroundResource(R.drawable.custom_search)
+                adapterCitySearch.filter.filter(newText)
                 return true
             }
         })
