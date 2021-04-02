@@ -27,6 +27,8 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
     private var id: Int? = null
     private var latitude: Float? = null
     private var longitude: Float? = null
+    private var isCheck = false
+    private var room: Room? = null
     private val relatedAdapter by lazy {
         RoomRelatedAdapter {
             addFragment(
@@ -71,6 +73,7 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
         initRecyclerView()
         backButtonClick()
         openMapClick()
+        favoriteClick()
     }
 
     private fun initRecyclerView() {
@@ -103,7 +106,12 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
     private fun initPresenter() {
         roomDetailPresenter.apply {
             setView(this@RoomDetailFragment)
-            state?.let { id?.let { idData -> getRoomDetail(it, idData) } }
+            state?.let {
+                id?.let { idData ->
+                    getRoomDetail(it, idData)
+                    getRoomLocal(it, idData)
+                }
+            }
         }
     }
 
@@ -146,12 +154,56 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
                 }
             }
         }
+        this.room = room
     }
 
     override fun getListRelatedRoomOnSuccess(
         relatedRoom: MutableList<TopRoom>
     ) {
         relatedAdapter.addData(relatedRoom)
+    }
+
+    override fun fetchRoomLocalOnSuccess(roomLocal: Room) {
+        checkFavorite(true)
+    }
+
+    override fun saveRoomLocalOnSuccess() {
+        checkFavorite(true)
+    }
+
+    override fun deleteRoomLocalOnSuccess() {
+        checkFavorite(false)
+    }
+
+    override fun onFail(exception: Exception?) {
+        checkFavorite(false)
+    }
+
+    private fun favoriteClick() {
+        imageViewLike.setOnClickListener {
+            if (isCheck) {
+                state?.let { stateData ->
+                    id?.let { idData ->
+                        roomDetailPresenter.deleteRoomLocal(
+                            stateData,
+                            idData
+                        )
+                    }
+                }
+            } else {
+                room?.let { roomData ->
+                    roomDetailPresenter.saveRoomLocal(roomData)
+                }
+            }
+        }
+    }
+
+    private fun checkFavorite(isFavorite: Boolean) {
+        isCheck = isFavorite
+        if (isFavorite)
+            imageViewLike.setImageResource(R.drawable.ic_favorite_checked)
+        else
+            imageViewLike.setImageResource(R.drawable.ic_favourite)
     }
 
     override fun onError(exception: Exception?) {

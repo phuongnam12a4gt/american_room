@@ -7,7 +7,7 @@ interface IRoomDao {
 
     fun save(room: Room, listener: OnFetchDataLocalListener<Room>)
 
-    fun delete(state: String, idRoom: Int, listener: OnFetchDataLocalListener<Room>)
+    fun delete(state: String, idRoom: Int, listener: OnFetchDataLocalListener<Int>)
 
     fun fetchRoom(state: String, idRoom: Int, listener: OnFetchDataLocalListener<Room>)
 

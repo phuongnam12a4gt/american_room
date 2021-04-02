@@ -20,7 +20,7 @@ class RoomLocalDataSource private constructor(
     override fun deleteRoom(
         state: String,
         idRoom: Int,
-        listener: OnFetchDataLocalListener<Room>
+        listener: OnFetchDataLocalListener<Int>
     ) {
         roomDao.delete(state, idRoom, listener)
     }

@@ -20,7 +20,7 @@ object RoomSchema {
     const val COLUMN_MAP_IMAGE_URL = "map_image_url"
     const val COLUMN_LAT = "latitude"
     const val COLUMN_LNG = "longitude"
-    const val ROOM_TABLE_CREATE = "CREATE TABLE IF NOT EXIST " +
+    const val ROOM_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " +
         "$ROOM_TABLE(" +
         "$COLUMN_ID INTEGER PRIMARY KEY," +
         "$COLUMN_IMAGE TEXT," +
