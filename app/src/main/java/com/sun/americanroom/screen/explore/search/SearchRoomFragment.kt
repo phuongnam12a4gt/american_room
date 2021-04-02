@@ -1,26 +1,34 @@
 package com.sun.americanroom.screen.explore.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.sun.americanroom.R
 import kotlinx.android.synthetic.main.fragment_search_room.*
 import androidx.appcompat.widget.SearchView
+import com.sun.americanroom.data.model.RoomSearch
+import com.sun.americanroom.data.source.local.RoomLocalDataSource
+import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
+import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.explore.adapter.CitySearchAdapter
-import com.sun.americanroom.utils.OnItemRecyclerViewClickListener
-import com.sun.americanroom.utils.addFragment
 
-class SearchRoomFragment : Fragment() {
+class SearchRoomFragment : Fragment(),
+    SearchRoomConstract.View {
 
     private val adapterCitySearch: CitySearchAdapter by lazy {
         CitySearchAdapter {
             onClickItemCity(it)
         }
+    }
+    private val searchRoomPresenter: SearchRoomConstract.Presenter by lazy {
+        SearchRoomPresenter(
+            RoomRepository.getRepository(
+                RoomLocalDataSource.getLocalData(requireContext()),
+                RoomRemoteDataSource.instance
+            )
+        )
     }
 
     override fun onCreateView(
@@ -49,8 +57,16 @@ class SearchRoomFragment : Fragment() {
         }
     }
 
+    private fun initData(value: String) {
+        searchRoomPresenter.run {
+            setView(this@SearchRoomFragment)
+            getRoomSearch(value)
+        }
+    }
+
     fun onClickItemCity(value: String) {
         recyclerViewCitySearch.visibility = View.GONE
+        initData(value)
     }
 
     private fun handleEvents() {
@@ -75,6 +91,10 @@ class SearchRoomFragment : Fragment() {
             }
         })
     }
+
+    override fun onSuccessRoomSearch(room: MutableList<RoomSearch>) {}
+
+    override fun onError(exception: Exception?) {}
 
     companion object {
         fun newInstance() = SearchRoomFragment()
