@@ -34,13 +34,17 @@ class RoomDao private constructor(
     override fun delete(
         state: String,
         idRoom: Int,
-        listener: OnFetchDataLocalListener<Room>
+        listener: OnFetchDataLocalListener<Int>
     ) {
         databaseHelper.writableDatabase.delete(
             RoomSchema.ROOM_TABLE,
             "${RoomSchema.COLUMN_STATE}=? and ${RoomSchema.COLUMN_ID}=?",
             arrayOf(state, idRoom.toString())
-        )
+        ).also {
+            if (it > 0) {
+                listener.onSuccess(it)
+            }
+        }
     }
 
     override fun fetchRoom(
@@ -57,15 +61,10 @@ class RoomDao private constructor(
             null,
             null
         )
-        if (cursor != null) {
-            while (!cursor.isAfterLast) {
-                cursor.apply {
-                    listener.onSuccess(cursorToEntity(this))
-                    moveToNext()
-                }
-            }
-            cursor.close()
+        if (cursor != null && cursor.moveToFirst()) {
+            listener.onSuccess(cursorToEntity(cursor))
         }
+        cursor.close()
     }
 
     override fun fetchAllRooms(listener: OnFetchDataLocalListener<MutableList<Room>>) {

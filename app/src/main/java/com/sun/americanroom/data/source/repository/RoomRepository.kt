@@ -58,7 +58,7 @@ class RoomRepository private constructor(
     fun deleteRoom(
         state: String,
         idRoom: Int,
-        listener: OnFetchDataLocalListener<Room>
+        listener: OnFetchDataLocalListener<Int>
     ) {
         local.deleteRoom(state, idRoom, listener)
     }
