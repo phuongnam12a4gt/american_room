@@ -7,7 +7,7 @@
     <string name="pick_a_state">Pick a state</string>
     <string name="text_title_suggesstion">May Be You Like This</string>
     <string name="cities">Cities</string>
-    <string name="reviews">Reviews</string>
+    <string name="reviews">reviews</string>
     <string name="display_location">Display Location</string>
     <string name="location">Location</string>
     <string name="related">Related</string>
@@ -19,4 +19,5 @@
     <string name="reviews_count">(%d reviews)</string>
     <string name="search">Search</string>
     <string name="list_room_search">List Room:</string>
+    <string name="dolar">$</string>
 </resources>

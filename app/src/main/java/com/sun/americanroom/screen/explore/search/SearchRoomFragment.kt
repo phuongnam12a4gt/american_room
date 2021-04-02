@@ -13,6 +13,9 @@ import com.sun.americanroom.data.source.local.RoomLocalDataSource
 import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
 import com.sun.americanroom.data.source.repository.RoomRepository
 import com.sun.americanroom.screen.explore.adapter.CitySearchAdapter
+import com.sun.americanroom.screen.explore.adapter.RoomSearchAdapter
+import com.sun.americanroom.screen.roomdetail.RoomDetailFragment
+import com.sun.americanroom.utils.addFragment
 
 class SearchRoomFragment : Fragment(),
     SearchRoomConstract.View {
@@ -20,6 +23,14 @@ class SearchRoomFragment : Fragment(),
     private val adapterCitySearch: CitySearchAdapter by lazy {
         CitySearchAdapter {
             onClickItemCity(it)
+        }
+    }
+    private val adapterRoomSearch: RoomSearchAdapter by lazy {
+        RoomSearchAdapter {
+            addFragment(
+                RoomDetailFragment.getDetail(it.state,it.id),
+                R.id.containerLayout
+            )
         }
     }
     private val searchRoomPresenter: SearchRoomConstract.Presenter by lazy {
@@ -50,10 +61,13 @@ class SearchRoomFragment : Fragment(),
     }
 
     private fun initView() {
-        with(recyclerViewCitySearch)
-        {
+        with(recyclerViewCitySearch) {
             setHasFixedSize(true)
             adapter = this@SearchRoomFragment.adapterCitySearch
+        }
+        with(recyclerViewListRoomSearch) {
+            setHasFixedSize(true)
+            adapter = this@SearchRoomFragment.adapterRoomSearch
         }
     }
 
@@ -92,7 +106,9 @@ class SearchRoomFragment : Fragment(),
         })
     }
 
-    override fun onSuccessRoomSearch(room: MutableList<RoomSearch>) {}
+    override fun onSuccessRoomSearch(room: MutableList<RoomSearch>) {
+        adapterRoomSearch.updateData(room)
+    }
 
     override fun onError(exception: Exception?) {}
 
