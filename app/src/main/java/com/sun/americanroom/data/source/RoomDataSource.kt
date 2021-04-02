@@ -59,5 +59,10 @@ interface RoomDataSource {
             state: String,
             id: Int
         )
+
+        fun getRoomSearch(
+            listener: OnFetchDataJsonListener<MutableList<RoomSearch>>,
+            name:String
+        )
     }
 }

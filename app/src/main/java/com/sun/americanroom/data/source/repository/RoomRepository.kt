@@ -3,9 +3,7 @@ package com.sun.americanroom.data.source.repository
 import com.sun.americanroom.data.model.*
 import com.sun.americanroom.data.source.RoomDataSource
 import com.sun.americanroom.data.source.local.OnFetchDataLocalListener
-import com.sun.americanroom.data.source.local.RoomLocalDataSource
 import com.sun.americanroom.data.source.remote.OnFetchDataJsonListener
-import com.sun.americanroom.data.source.remote.RoomRemoteDataSource
 
 class RoomRepository private constructor(
     private val local: RoomDataSource.Local,
@@ -75,6 +73,13 @@ class RoomRepository private constructor(
         listener: OnFetchDataLocalListener<MutableList<Room>>
     ) {
         local.getAllRoom(listener)
+    }
+
+    fun getRoomSearch(
+        listener: OnFetchDataJsonListener<MutableList<RoomSearch>>,
+        name: String
+    ) {
+        remote.getRoomSearch(listener, name)
     }
 
     companion object {

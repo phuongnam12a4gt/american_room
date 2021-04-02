@@ -79,4 +79,19 @@ class ParseJson {
                 getDouble(RoomEntry.LNG).toFloat()
             )
         }
+
+    fun parseJsonToTopRoomSearch(jsonObject: JSONObject?): RoomSearch? =
+        jsonObject?.run {
+            RoomSearch(
+                getInt(RoomSearchEntry.ID),
+                getString(RoomSearchEntry.PICTUREURL),
+                getString(RoomSearchEntry.NAME),
+                getString(RoomSearchEntry.CITY),
+                getString(RoomSearchEntry.STATE),
+                if (getString(Constant.STAR_RATING)==Constant.NULL) null
+                else getDouble(Constant.STAR_RATING),
+                getInt(RoomSearchEntry.REVIEWS),
+                getInt(RoomSearchEntry.PRICE)
+            )
+        }
 }

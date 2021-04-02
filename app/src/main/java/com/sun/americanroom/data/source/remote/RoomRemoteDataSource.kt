@@ -74,13 +74,29 @@ class RoomRemoteDataSource private constructor() : RoomDataSource.Remote {
 
     override fun getRoomDetail(listener: OnFetchDataJsonListener<Room>, state: String, id: Int) {
         val baseUrl = Constant.BASE_URL +
-                Constant.PROPERTY +
-                id +
-                Constant.STATE +
-                state +
-                Constant.API_KEY +
-                Constant.API_VALUE
+            Constant.PROPERTY +
+            id +
+            Constant.STATE +
+            state +
+            Constant.API_KEY +
+            Constant.API_VALUE
         GetJsonFromUrl(listener, KeyEntity.ROOM_DETAIL).execute(baseUrl)
+    }
+
+    override fun getRoomSearch(
+        listener: OnFetchDataJsonListener<MutableList<RoomSearch>>,
+        name: String
+    ) {
+        val baseUrl = Constant.BASE_URL +
+            Constant.TOP_REVIEW +
+            Constant.STATE +
+            StateCode.CALIFORNIA +
+            Constant.PAGE_DEFAULT +
+            Constant.CITY +
+            name +
+            Constant.API_KEY +
+            Constant.API_VALUE
+        GetJsonFromUrl(listener, KeyEntity.TOP_ROOM_SEARCH).execute(baseUrl)
     }
 
     private object Holder {

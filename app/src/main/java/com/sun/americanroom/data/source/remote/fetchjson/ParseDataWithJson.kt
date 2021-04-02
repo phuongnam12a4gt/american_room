@@ -63,6 +63,12 @@ class ParseDataWithJson {
                 KeyEntity.ROOM_DETAIL -> {
                     parseJsonToObject(jsonObjectContent, keyEntity)
                 }
+                KeyEntity.TOP_ROOM_SEARCH -> {
+                    parseJsonToList(
+                        jsonObjectContent?.getJSONArray(Constant.LIST),
+                        keyEntity
+                    )
+                }
                 else -> null
             }
         } catch (e: Exception) {
@@ -87,6 +93,9 @@ class ParseDataWithJson {
             }
             KeyEntity.ROOM_DETAIL -> {
                 parseJsonToModel.parseJsonToRoomDetail(jsonObject)
+            }
+            KeyEntity.TOP_ROOM_SEARCH -> {
+                parseJsonToModel.parseJsonToTopRoomSearch(jsonObject)
             }
             else -> null
         }
@@ -117,6 +126,12 @@ class ParseDataWithJson {
             }
             KeyEntity.TOP_ROOM_SLIDER -> {
                 for (i in 0 until Constant.NUMBER_ROOM_SLIDER) {
+                    val jsonObject = jsonArray?.getJSONObject(i)
+                    data.add(parseJsonToObject(jsonObject, keyEntity))
+                }
+            }
+            KeyEntity.TOP_ROOM_SEARCH -> {
+                for (i in 0 until NUMBER_OF_ROOM) {
                     val jsonObject = jsonArray?.getJSONObject(i)
                     data.add(parseJsonToObject(jsonObject, keyEntity))
                 }
