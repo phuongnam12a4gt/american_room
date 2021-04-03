@@ -210,6 +210,11 @@ class RoomDetailFragment : Fragment(), RoomDetailContract.View {
         exception?.printStackTrace()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        roomDetailPresenter.onStop()
+    }
+
     companion object {
         private const val ARG_STATE = "ARG_STATE"
         private const val ARG_ID = "ARG_ID"

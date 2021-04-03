@@ -96,7 +96,9 @@ class RoomDetailPresenter(
 
     override fun onStart() {}
 
-    override fun onStop() {}
+    override fun onStop() {
+        view = null
+    }
 
     override fun setView(view: RoomDetailContract.View?) {
         this.view = view
